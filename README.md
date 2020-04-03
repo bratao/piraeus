@@ -38,7 +38,7 @@ This is `kernel-devel` for CentOS based distributions and `` linux-headers-`unam
 Install as follows:
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/piraeusdatastore/piraeus/master/deploy/all.yaml
+kubectl apply -f https://raw.githubusercontent.com/bratao/piraeus/master/deploy/all.yaml
 ```
 
 This may take several minutes. You may observe the pods by command:
