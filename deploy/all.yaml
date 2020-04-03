@@ -155,8 +155,8 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: node-role.kubernetes.io/master
-                operator: DoesNotExist
+              - key: node-role.kubernetes.io/worker
+                operator: Exists
       tolerations:
       - operator: Exists
         effect: NoSchedule
@@ -237,7 +237,7 @@ spec:
           mountPath: /init
       containers:
       - name: controller
-        image: quay.io/piraeusdatastore/piraeus-server:v1.4.2
+        image: quay.io/piraeusdatastore/piraeus-server:v1.5.2
         imagePullPolicy: IfNotPresent
         resources:
           limits:
@@ -289,8 +289,8 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: node-role.kubernetes.io/master
-                operator: DoesNotExist
+              - key: node-role.kubernetes.io/worker
+                operator: Exists
       tolerations:
       - operator: Exists
         effect: NoSchedule
@@ -306,7 +306,7 @@ data:
   INIT_DEBUG: "false"
   LS_CONTROLLERS: piraeus-controller.piraeus-system.svc.cluster.local:3370
   POOL_BASE_DIR: /var/lib/piraeus/storagepools
-  DRBD_IMG_TAG: v9.0.21
+  DRBD_IMG_TAG: v9.0.22
   DRBD_IMG_PULL_POLICY: IfNotPresent
   MAP_HOST_LVM: "true"
 ---
@@ -385,7 +385,7 @@ spec:
           mountPath: /usr/local/bin
       containers:
       - name: satellite
-        image: quay.io/piraeusdatastore/piraeus-server:v1.4.2
+        image: quay.io/piraeusdatastore/piraeus-server:v1.5.2
         imagePullPolicy: IfNotPresent
         securityContext:
           privileged: true
@@ -466,12 +466,8 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: piraeus/node
-                operator: In
-                values:
-                - "true"
-              - key: node-role.kubernetes.io/master
-                operator: DoesNotExist
+              - key: node-role.kubernetes.io/worker
+                operator: Exists
       tolerations:
       - operator: Exists
         effect: NoSchedule
@@ -623,12 +619,8 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: piraeus/node
-                operator: In
-                values:
-                - "true"
-              - key: node-role.kubernetes.io/master
-                operator: DoesNotExist
+              - key: node-role.kubernetes.io/worker
+                operator: Exists
       tolerations:
       - operator: Exists
         effect: NoSchedule
@@ -803,8 +795,8 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: node-role.kubernetes.io/master
-                operator: DoesNotExist
+              - key: node-role.kubernetes.io/worker
+                operator: Exists
       tolerations:
       - operator: Exists
         effect: NoSchedule
@@ -1243,8 +1235,8 @@ spec:
                 operator: In
                 values:
                 - "true"
-              - key: node-role.kubernetes.io/master
-                operator: DoesNotExist
+              - key: node-role.kubernetes.io/worker
+                operator: Exists
       tolerations:
       - operator: Exists
         effect: NoSchedule
