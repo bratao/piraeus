@@ -238,7 +238,7 @@ spec:
           mountPath: /init
       containers:
       - name: controller
-        image: quay.io/piraeusdatastore/piraeus-server:v1.5.2
+        image: quay.io/piraeusdatastore/piraeus-server:v1.6.1
         imagePullPolicy: IfNotPresent
         resources:
           limits:
@@ -385,7 +385,7 @@ spec:
           mountPath: /opt/piraeus
       containers:
       - name: satellite
-        image: quay.io/piraeusdatastore/piraeus-server:v1.5.2
+        image: quay.io/piraeusdatastore/piraeus-server:v1.6.1
         imagePullPolicy: IfNotPresent
         securityContext:
           privileged: true
@@ -747,7 +747,7 @@ spec:
         - name: socket-dir
           mountPath: /var/lib/csi/sockets/pluginproxy/
       - name: piraeus-csi-plugin
-        image: quay.io/piraeusdatastore/piraeus-csi:v0.7.4
+        image: quay.io/piraeusdatastore/piraeus-csi:v0.8.0
         imagePullPolicy: IfNotPresent
         resources:
           limits:
@@ -1168,7 +1168,7 @@ spec:
         - name: registration-dir
           mountPath: /registration/
       - name: piraeus-csi-plugin
-        image: quay.io/piraeusdatastore/piraeus-csi:v0.7.4
+        image: quay.io/piraeusdatastore/piraeus-csi:v0.8.0
         imagePullPolicy: IfNotPresent
         resources:
           limits:
